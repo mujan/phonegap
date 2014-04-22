@@ -8,7 +8,7 @@ QQ.gps = function (){
             this.onDeviceReady = function() {
                 // Get the most accurate position updates available on the
                 // device.
-                var options = { maximumAge: 3000, timeout: 10000, enableHighAccuracy: true };
+                var options = {timeout: 10000, enableHighAccuracy: true };
                 watchID = navigator.geolocation.watchPosition(this.onSuccess, this.onError, options);
             };
 
