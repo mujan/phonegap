@@ -15,7 +15,6 @@ QQ.gps = function (){
             // onSuccess Geolocation
             //
             this.onSuccess = function(position) {
-                var element = document.getElementById('geolocation');
                 QQ.lat = position.coords.latitude;
                 QQ.lng = position.coords.longitude;
                 QQ.latlng = new google.maps.LatLng(QQ.lat, QQ.lng);
