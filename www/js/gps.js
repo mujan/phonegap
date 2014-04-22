@@ -8,7 +8,7 @@ QQ.gps = function (){
             this.onDeviceReady = function() {
                 // Get the most accurate position updates available on the
                 // device.
-                var options = {timeout: 10000, enableHighAccuracy: false };
+                var options = {timeout: 10000, enableHighAccuracy: true };
                 watchID = navigator.geolocation.watchPosition(this.onSuccess, this.onError, options);
             };
 
@@ -25,7 +25,7 @@ QQ.gps = function (){
             
             // clear the watch that was started earlier
             //
-            this.clearWatch = function() {alert()
+            this.clearWatch = function() {
                 if (watchID !== null) {
                     navigator.geolocation.clearWatch(watchID);
                     watchID = null;
