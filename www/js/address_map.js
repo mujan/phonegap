@@ -43,36 +43,43 @@ var user_name = [];
 $(document).ready(function() {
     $("#__myhome").submit(function(event) {
         event.preventDefault();
-        $("#instructionsHome li").hide();
+        $("#instructionsHome").hide();//hide instrunction of route
         $("#routeMyhome").hide();
         self = this;
-        var _dialog = new dialog();
         var input_data = $("#user_name").val();
         if (!input_data) {
-            _dialog.empty(self,'Morate uneti korisnicko ime!');
-        } else{
+            alert('Morate uneti korisnicko ime!');
+        } else {
             check_user_name("http://mujangeolocation.lockernerd.co.uk/geolocation/test.php?inputData=" + input_data,
                     function(data) {
                         check_data(data);
                     }
             );
             function check_data(data) {
-                if(data !== "false"){
+                if (data !== "false") {
                     user_name.push($("#user_name").val());
                 }
                 if (user_name[0] !== user_name[user_name.length - 1] && $("#routeMyhome").html().length !== 0 && data !== "false") {
                     stopAnimation();
                     $("#loaderImage3").hide();
-                    $("#instructionsHome li").hide();
+                    $("#instructionsHome").hide();
                     $("#routeMyhome").hide();
-                    _dialog.empty(self,"Ne mozete koristiti dva korisnicka imena");
+                    alert("Ne mozete koristiti dva korisnicka imena");
                     return;
                 }
                 if (data === "false") {
                     $("#foo").show();
-                    _dialog.empty(self,'Da bi ste koristili ovu uslugu morate se uclaniti: <br /> <a href="#sing_form"><span style="color:red">Uclanite se!<span></a> ');
+                    var r = confirm("Da bi ste koristili ovu uslugu morate se uclaniti");
+                    if (r === true)
+                    {
+                        window.location = location.pathname + "#sing_form";
+                    }
+                    else
+                    {
+                        
+                    }
                     var hideDialog = setInterval(function() {
-                        if ($.mobile.activePage.attr('id') !==  "myhome") {
+                        if ($.mobile.activePage.attr('id') !== "myhome") {
                             $("#foo").hide();
                             clearInterval(hideDialog);
                         }

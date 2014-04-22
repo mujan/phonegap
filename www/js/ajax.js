@@ -104,29 +104,14 @@ function entires_user(user_data, self) {
             },
             success: function(data, textStatus, jqXHR) {
                 if (data === "exist") {
-                    response = "Korisnicko ime vec postoji!";
+                    alert("Korisnicko ime vec postoji!");
                 } else if (data === "empty") {
-                    response = "Morate popuniti sva polja";
+                    alert("Morate popuniti sva polja");
                 } else {
-                    response = "Uspesno ste se uclanili";
+                    alert("Uspesno ste se uclanili");
                     $('#user_data')[0].reset();
+                    window.location = location.pathname + "#myhome";
                 }
-                
-                $(self).simpledialog({
-                    'prompt': response,
-                    'cleanOnClose': true,
-                    'buttons': {
-                        Cancel: {
-                            click: function() {
-                                if(data === "true"){
-                                    window.history.go(-1);
-                                }
-                            },
-                            icon: "delete",
-                            theme: "b"
-                        }
-                    }
-                });
             },
             error: function(jqXHR, textStatus, errorThrown) {
             }

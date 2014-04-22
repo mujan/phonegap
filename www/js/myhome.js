@@ -30,7 +30,7 @@ function userComandHome(current_latitude, current_longitude) {
      console.log(home_lng);
      */
     $("#routeMyhome").show();
-    $("#instructionsHome li").show();
+    $("#instructionsHome").show();
     map = new GMaps({
         el: '#routeMyhome',
         lat: current_latitude,
