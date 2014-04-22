@@ -8,7 +8,7 @@ QQ.gps = function (){
             this.onDeviceReady = function() {
                 // Get the most accurate position updates available on the
                 // device.
-                var options = {timeout: 10000, enableHighAccuracy: true };
+                var options = {timeout: 10000, enableHighAccuracy: false };
                 watchID = navigator.geolocation.watchPosition(this.onSuccess, this.onError, options);
             };
 
@@ -25,7 +25,7 @@ QQ.gps = function (){
             
             // clear the watch that was started earlier
             //
-            this.clearWatch = function() {
+            this.clearWatch = function() {alert()
                 if (watchID !== null) {
                     navigator.geolocation.clearWatch(watchID);
                     watchID = null;
@@ -43,9 +43,12 @@ QQ.gps = function (){
 };
 
 $("document").ready(function() {
+    gps = new QQ.gps();
     $(document).on("pagecreate", "#mylocation", function() {
-        var gps = new QQ.gps();
         gps.onDeviceReady();
+    });
+    $("#stopWatch").click(function(){
+        gps.clearWatch();
     });
 });
 
