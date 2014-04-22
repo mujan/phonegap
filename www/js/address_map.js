@@ -48,7 +48,6 @@ $(document).ready(function() {
         self = this;
         var _dialog = new dialog();
         var input_data = $("#user_name").val();
-        console.log(input_data);
         if (!input_data) {
             _dialog.empty(self,'Morate uneti korisnicko ime!');
         } else{
