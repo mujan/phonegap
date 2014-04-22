@@ -1,14 +1,14 @@
        QQ = {};
        var watchID = null;
 QQ.gps = function (){
-     //document.addEventListener("deviceready", onDeviceReady, false);
+            //document.addEventListener("deviceready", onDeviceReady, false);
 
             // device APIs are available
             //
             this.onDeviceReady = function() {
                 // Get the most accurate position updates available on the
                 // device.
-                var options = {enableHighAccuracy: true};
+                var options = { maximumAge: 3000, timeout: 10000, enableHighAccuracy: true };
                 watchID = navigator.geolocation.watchPosition(this.onSuccess, this.onError, options);
             };
 
@@ -35,10 +35,10 @@ QQ.gps = function (){
             // onError Callback receives a PositionError object
             //
             this.onError = function(error) {
-                alert('code: ' + error.code + '\n' +
-                        'message: ' + error.message + '\n');
+                //alert('code: ' + error.code + '\n' +
+                  //      'message: ' + error.message + '\n');
             };
-            this.onDeviceReady();
+            //this.onDeviceReady();
 
 };
 

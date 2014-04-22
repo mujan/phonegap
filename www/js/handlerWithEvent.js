@@ -2,7 +2,7 @@ $(document).ready(function() {
     $(".foo").animate({left: '100%'}, "slow");
     $("#anim").click(function() {
         $(".span11").hide();
-        $(".foo").show().animate({left: '50%'}, "slow");
+        $(".foo").show().animate({left: '0%'}, "slow");
     });
 });
 
@@ -19,8 +19,10 @@ $(document).ready(function() {
     $("#lookMap").click(function() {
         $("#instructions").empty();
         $(".span11").show();
-        $(".foo").animate({left: '100%'}, "slow");
-        new userComand();
+        $(".foo").animate({left: '100%'}, "slow",function(){
+            new userComand();
+        });
+        
     });
 });
 

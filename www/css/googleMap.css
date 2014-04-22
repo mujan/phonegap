@@ -159,7 +159,7 @@ button {
 .foo{
     top: 0;
     left: 50%;
-    width: 50%;
+    width: 100%;
     position: absolute;
     border-radius: 1px;
 }
