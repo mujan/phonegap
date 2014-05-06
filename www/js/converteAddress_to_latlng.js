@@ -1,4 +1,4 @@
-function converteAddress_to_latlng(address, callback) {
+function converteAddress_to_latlng(address, callback) {//call ajax.js line:88
     GMaps.geocode({
         address: address,
         callback: function(results, status) {

@@ -25,7 +25,7 @@ $(document).ready(function() {
         
     });
 });
-
+// data about caffe stored in DB
 $(document).ready(function() {
     var i = 0;
     $("#remove_href_nerbyCoffe").click(function() {
@@ -33,7 +33,7 @@ $(document).ready(function() {
         stopAnimation();
         //start animation
         new imageLoader("css/images/sprites.gif", 'startAnimation(' + 2 + ')');
-        if ($("#lat").val() === "null" || $("#lng").val() === "null") {
+        if ($("#lat").val() === "null" || $("#lng").val() === "null") {//Ukoliko podazuje na BG id="lat" i id="lng" su iz nekog razloga setovani
             GEOlocation.getLocation();
         }
         var int = setInterval(function() {

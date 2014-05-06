@@ -83,7 +83,7 @@ function entires_user(user_data, self) {
     var fname = user_data[0];
     var lname = user_data[1];
     var user_name = user_data[2];
-    var address = user_data[3];//validate address
+    var address = user_data[3];
     //callback function ajax.js
     var ret = converteAddress_to_latlng(address, function(lat, lng) {
         var url_name = "http://mujangeolocation.lockernerd.co.uk/geolocation/check_userdata.php?fname=" + fname + "&lname=" + lname + "&lat=" + lat + "&lng=" + lng + "&user_name=" + user_name;

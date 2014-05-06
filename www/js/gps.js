@@ -1,7 +1,6 @@
        QQ = {};
        var watchID = null;
 QQ.gps = function (){
-            //document.addEventListener("deviceready", onDeviceReady, false);
 
             // device APIs are available
             //
@@ -33,12 +32,11 @@ QQ.gps = function (){
             };
 
             // onError Callback receives a PositionError object
-            //
+            
             this.onError = function(error) {
                 //alert('code: ' + error.code + '\n' +
-                  //      'message: ' + error.message + '\n');
+                      //  'message: ' + error.message + '\n');
             };
-            //this.onDeviceReady();
 
 };
 

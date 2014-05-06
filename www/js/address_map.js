@@ -8,7 +8,7 @@ $(document).ready(function() {
     $('#geocoding_form').submit(function(e) {
         e.preventDefault();
         GMaps.geocode({
-            address: $('#_address').val().trim(),
+            address: $('#_address').val().trim(),//line: 165
             callback: function(results, status) {
                 if (status == 'OK') {
                     var latitude = results[0].geometry.location.lat();
@@ -41,24 +41,25 @@ $(document).ready(function() {
 
 var user_name = [];
 $(document).ready(function() {
-    $("#__myhome").submit(function(event) {
+    $("#__myhome").submit(function(event) {//line: 191 <!-- My home -->
         event.preventDefault();
         $("#instructionsHome").hide();//hide instrunction of route
-        $("#routeMyhome").hide();
+        $("#routeMyhome").hide();//this is map
         self = this;
         var input_data = $("#user_name").val();
         if (!input_data) {
             alert('Morate uneti korisnicko ime!');
-        } else {
-            check_user_name("http://mujangeolocation.lockernerd.co.uk/geolocation/test.php?inputData=" + input_data,
+        } else { //chack if user name exist in db
+            check_user_name("http://mujangeolocation.lockernerd.co.uk/geolocation/test.php?inputData=" + input_data,//ajax.js line:43
                     function(data) {
                         check_data(data);
                     }
             );
             function check_data(data) {
                 if (data !== "false") {
-                    user_name.push($("#user_name").val());
+                    user_name.push($("#user_name").val());//get value from input if exist in db
                 }
+                //chack if first element in array is equal to last element
                 if (user_name[0] !== user_name[user_name.length - 1] && $("#routeMyhome").html().length !== 0 && data !== "false") {
                     stopAnimation();
                     $("#loaderImage3").hide();
@@ -78,12 +79,14 @@ $(document).ready(function() {
                     {
                         
                     }
+                    /*
                     var hideDialog = setInterval(function() {
                         if ($.mobile.activePage.attr('id') !== "myhome") {
                             $("#foo").hide();
                             clearInterval(hideDialog);
                         }
                     }, 1000);
+                    */
                 } else {
                     $("#loaderImage3").show();
                     new imageLoader("css/images/sprites.gif", 'startAnimation(' + 3 + ')');
